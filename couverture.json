@@ -1,0 +1,16 @@
+{
+  "cours": "vanne-service-interactive",
+  "titre": "La vanne de service — trois positions, deux prises",
+  "reference": "règlement d’exécution (UE) 2024/2215, annexe I",
+  "ecrans": 4,
+  "codes": {
+    "4.01": ["geste"],
+    "4.05": ["positions", "jeux"],
+    "5.01": ["geste", "jeux"]
+  },
+  "appui": {
+    "6.01": ["geste"],
+    "6.06": ["positions"]
+  },
+  "hors_referentiel": ["bp-hp"]
+}

@@ -1,0 +1,70 @@
+LA VANNE DE SERVICE — TROIS POSITIONS, DEUX PRISES
+
+Cours interactif relié aux fiches p1, p5, g6b et g9b.
+4 ecrans, 9 questions corrigees, aucune image ni son en fichier.
+
+CE QUE LE COURS FAIT
+  Il met en coupe animee la vanne de service a deux prises et montre ce qu'un
+  dessin fixe ne montre pas : le carre, la tige et le pointeau se deplacent
+  comme un seul ensemble de longueur constante, le presse-etoupe reste fixe, et
+  chaque position ouvre ou ferme des passages differents.
+    fermee sur l'arriere   T communique avec C, P est isolee, P1 reste reliee a C
+    position intermediaire T, C, P et P1 communiquent : c'est la position de lecture
+    fermee sur l'avant     T est isolee de C, P et P1 restent reliees a C
+  Le bleu plein represente les volumes qui communiquent avec le compresseur, le
+  gris hachure un volume isole par le pointeau. Un volume isole n'est ni vide ni
+  sans pression.
+
+LES QUATRE ECRANS
+  1. positions  les trois positions, cle manoeuvrable ou sequence automatique
+  2. bp-hp      la meme vanne cote aspiration (T vers C) et cote refoulement (C vers T)
+  3. geste      P voie de service, P1 prise permanente du pressostat, presse-etoupe,
+                sens de rotation, points de fuite a controler
+  4. jeux       4 reperages cliquables sur la coupe + 5 decisions de chantier
+
+COUVERTURE DECLAREE (couverture.json)
+  4.01  points de fuite potentiels — presse-etoupe, raccords et bouchons P / P1
+  4.05  instruments de mesure portables — la position de lecture au manometre
+  5.01  connecter et deconnecter les jauges et lignes avec le minimum d'emissions
+  En APPUI seulement, donc jamais compte comme une preuve de couverture :
+  6.01 (risques de fuite du compresseur) et 6.06 (mesures en fonctionnement).
+  L'ecran bp-hp est declare hors referentiel : c'est du contexte de comprehension.
+
+ADRESSAGE
+  index.html                    ouvre sur l'ecran 1
+  index.html?ecran=geste        ouvre droit sur le raccordement et la securite
+  index.html?ecran=jeux         ouvre droit sur les mini-jeux
+  index.html?dossier=bp-hp      alias accepte, pour rester homogene avec les autres cours
+  Le bouton « Copier le lien » de l'en-tete donne l'adresse exacte de l'ecran
+  affiche : de quoi envoyer deux ecrans en reponse a une question de stagiaire.
+
+LISIBILITE
+  Le reglage de la taille du texte n'est plus local a ce module : c'est le bouton
+  flottant « Aa » du moteur (moteur/lisibilite.js), memorise et partage avec
+  toutes les pages du pack, avec bascule vers la police Lexend pour les lecteurs
+  DYS. A 100 %, l'ecran tient sans defilement. Au-dela, la page defile, les deux
+  colonnes s'empilent et la barre des etapes reste collee en haut.
+
+IMPRESSION — LE LIVRET DES QUATRE ECRANS
+  Bouton « Livret » dans l'en-tete, ou simplement Ctrl+P : l'application s'efface
+  et laisse la place a un livret A4 portrait d'environ quatre pages —
+    · le tableau des trois positions (passage T-C, voies de service, geste) ;
+    · les trois coupes, chacune avec sa legende ;
+    · les deux sens de circulation, BP et HP ;
+    · la coupe de securite et ses quatre reperes ;
+    · les neuf questions AVEC LEUR CORRIGE.
+  La couleur est gardee (titres, filets, cadres) et chaque etat porte aussi un
+  style de trait et un mot : photocopie, un vert et un rouge sont indiscernables.
+  Le livret n'est construit qu'au moment d'imprimer, puis vide : les <style> d'un
+  SVG en ligne sont globaux au document, et six coupes de plus feraient perdre la
+  hachure du volume isole a l'ecran.
+
+LIMITES DE SECURITE
+  Schemas de principe, pas une notice : le nombre de tours et le sens de manoeuvre
+  suivent la documentation du constructeur. P1 peut rester sous pression dans
+  toutes les positions — ne jamais defaire son bouchon sur une installation
+  chargee. Le resultat des mini-jeux est un entrainement, jamais un examen.
+
+DONNEES ET RESEAU
+  Aucune donnee personnelle, aucun stockage propre au cours, aucune ressource
+  externe. Fonctionne hors ligne.

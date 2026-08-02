@@ -1,0 +1,240 @@
+/* =====================================================================
+   IMPRESSION — le livret des quatre écrans
+   ---------------------------------------------------------------------
+   Ce n'est pas une copie d'écran : à l'impression, l'application disparaît
+   et laisse la place au livret construit par `app.js` (les trois positions
+   en tableau et en coupe, les deux sens de circulation, les repères de
+   sécurité, les neuf questions avec leur corrigé).
+
+   CHARTE PAPIER inerWeb — la couleur est GARDÉE (titres, filets, cadres),
+   ce n'est pas une charte noir et blanc. Ce qui disparaît, ce sont les
+   SURFACES pleines et les ombres, qui mangent l'encre et grisent le texte.
+   Et rien ne repose sur la couleur SEULE : mesuré, un vert et un rouge sont
+   indiscernables une fois photocopiés — chaque état porte donc aussi un
+   style de trait ET un mot.
+   ===================================================================== */
+@page {
+  size: A4 portrait;
+  margin: 16mm 15mm;
+}
+
+html,
+body {
+  width: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+  background: #fff !important;
+  color: #000 !important;
+  font-size: 11pt;
+}
+
+/* L'application entière s'efface : le livret la remplace. */
+.app-shell,
+.skip-link,
+#lisib-bouton,
+#lisib-panneau {
+  display: none !important;
+}
+
+.print-book {
+  display: block !important;
+}
+
+/* ---- Tête du livret ---- */
+.livret-tete {
+  border-bottom: 2.5pt solid #1b3a63;
+  padding-bottom: 4mm;
+  margin-bottom: 6mm;
+}
+
+.livret-marque {
+  margin: 0 0 2mm;
+  font-family: "Trebuchet MS", Calibri, Arial, sans-serif;
+  font-size: 9pt;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: #1b3a63;
+  text-transform: uppercase;
+}
+
+.livret h1 {
+  margin: 0 0 3mm;
+  font-family: "Trebuchet MS", Calibri, Arial, sans-serif;
+  font-size: 19pt;
+  line-height: 1.15;
+  color: #1b3a63;
+}
+
+.livret-chapeau {
+  margin: 0 0 3mm;
+  line-height: 1.45;
+}
+
+/* Le danger : cadre à trait interrompu + mot « JAMAIS », pas seulement du rouge. */
+.livret-danger {
+  margin: 0;
+  padding: 2.5mm 3mm;
+  border: 1.5pt dashed #c0392b;
+  border-left-width: 4pt;
+  border-left-style: solid;
+  color: #000;
+  font-weight: 700;
+}
+
+.livret-danger::before {
+  content: "⚠ NE JAMAIS OUVRIR P1 SOUS PRESSION — ";
+  color: #c0392b;
+  font-family: "Trebuchet MS", Calibri, Arial, sans-serif;
+}
+
+/* ---- Blocs ---- */
+.livret-bloc {
+  margin-bottom: 7mm;
+}
+
+.livret-bloc h2 {
+  margin: 0 0 3mm;
+  padding-bottom: 1.5mm;
+  border-bottom: 1pt solid #1b3a63;
+  font-family: "Trebuchet MS", Calibri, Arial, sans-serif;
+  font-size: 14pt;
+  color: #1b3a63;
+}
+
+.livret-bloc h3 {
+  margin: 4mm 0 2mm;
+  font-family: "Trebuchet MS", Calibri, Arial, sans-serif;
+  font-size: 11.5pt;
+  color: #1b3a63;
+}
+
+.livret-bloc > p {
+  margin: 0 0 3mm;
+  line-height: 1.45;
+}
+
+/* ---- Tableau des trois positions ---- */
+.livret-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 5mm;
+  font-size: 10pt;
+  break-inside: avoid;
+}
+
+.livret-table th,
+.livret-table td {
+  border: .75pt solid #1b3a63;
+  padding: 2mm 2.5mm;
+  text-align: left;
+  vertical-align: top;
+}
+
+.livret-table thead th {
+  font-family: "Trebuchet MS", Calibri, Arial, sans-serif;
+  color: #1b3a63;
+  border-bottom-width: 2pt;
+}
+
+.livret-table tbody th {
+  width: 34mm;
+  font-family: "Trebuchet MS", Calibri, Arial, sans-serif;
+  color: #1b3a63;
+}
+
+/* ---- Coupes ---- */
+.livret-figure {
+  margin: 0 0 5mm;
+  padding: 2.5mm;
+  border: 1pt solid #1b3a63;
+  break-inside: avoid;
+}
+
+.livret-figure svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 85mm;
+}
+
+.livret-figure figcaption {
+  margin-top: 2mm;
+  padding-top: 1.5mm;
+  border-top: .5pt solid #1b3a63;
+  font-size: 9.5pt;
+  line-height: 1.35;
+}
+
+.livret-figure figcaption strong {
+  color: #1b3a63;
+}
+
+/* ---- Repères de sécurité : puce + trait, jamais la couleur seule ---- */
+.livret-reperes {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.livret-reperes li {
+  margin-bottom: 2.5mm;
+  padding: 2mm 3mm;
+  border-left: 3pt solid #1b3a63;
+  line-height: 1.4;
+  break-inside: avoid;
+}
+
+.livret-reperes li:nth-child(2) {
+  border-left-style: dashed;
+  border-left-color: #c0392b;
+}
+
+.livret-reperes li:nth-child(3) {
+  border-left-style: double;
+  border-left-width: 4pt;
+  border-left-color: #1e7e54;
+}
+
+.livret-reperes strong {
+  font-family: "Trebuchet MS", Calibri, Arial, sans-serif;
+  color: #1b3a63;
+}
+
+/* ---- Corrigé ---- */
+.livret-corrige {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: none;
+}
+
+.livret-corrige li {
+  margin-bottom: 3mm;
+  break-inside: avoid;
+}
+
+.livret-question {
+  margin: 0 0 1mm;
+  font-weight: 700;
+}
+
+.livret-reponse {
+  margin: 0;
+  padding-left: 4mm;
+  border-left: 2pt solid #1e7e54;
+  line-height: 1.4;
+}
+
+.livret-reponse strong {
+  color: #1e7e54;
+}
+
+/* ---- Pied ---- */
+.livret-pied {
+  margin-top: 6mm;
+  padding-top: 3mm;
+  border-top: 1pt solid #1b3a63;
+  font-size: 9pt;
+  line-height: 1.4;
+  break-inside: avoid;
+}
