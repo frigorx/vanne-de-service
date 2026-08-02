@@ -22,7 +22,8 @@
         <strong>La vanne de service</strong>
         <span>coupe, circulation et raccordements</span>
       </div>
-      <div class="reading-tools" aria-label="Partage et impression">
+      <div class="reading-tools" aria-label="Sommaire, partage et impression">
+        <button type="button" id="home-button" class="share-button" title="Revenir au sommaire">☰ Sommaire</button>
         <button type="button" id="copy-link" class="share-button" title="Copier le lien de cet écran">🔗 Copier le lien</button>
         <button type="button" id="print-book-button" class="share-button" title="Imprimer le livret des quatre écrans">🖨 Livret</button>
       </div>
@@ -34,6 +35,38 @@
       <button type="button" class="step-button" data-step="2"><span>3</span><strong>Geste et sécurité</strong></button>
       <button type="button" class="step-button" data-step="3"><span>4</span><strong>Mini-jeux</strong></button>
     </nav>
+
+    <section class="home" id="home" aria-labelledby="home-title">
+      <div class="home-copy">
+        <p class="kicker">Cours interactif · inerWeb Édu</p>
+        <h1 id="home-title" tabindex="-1">La vanne de service</h1>
+        <p class="home-intro">Le carré de manœuvre, la tige et le pointeau se déplacent comme <strong>un seul ensemble</strong> ; le presse-étoupe, lui, reste fixe. Choisis par où commencer — ou suis les quatre écrans dans l’ordre.</p>
+        <p class="home-danger"><strong>P1 peut rester sous pression dans toutes les positions.</strong> Ne jamais défaire son bouchon sur une installation chargée.</p>
+      </div>
+      <nav class="home-grid" aria-label="Les quatre écrans du cours">
+        <button type="button" class="home-tile" data-step="0">
+          <span class="home-tile-num">1</span>
+          <strong>Les trois positions</strong>
+          <small>Fermée sur l’arrière, intermédiaire, fermée sur l’avant : ce que chaque position ouvre et ce qu’elle isole.</small>
+        </button>
+        <button type="button" class="home-tile" data-step="1">
+          <span class="home-tile-num">2</span>
+          <strong>BP et HP</strong>
+          <small>Le même organe côté aspiration et côté refoulement : la géométrie ne change pas, le sens du fluide si.</small>
+        </button>
+        <button type="button" class="home-tile" data-step="2">
+          <span class="home-tile-num">3</span>
+          <strong>Geste et sécurité</strong>
+          <small>Où brancher le flexible du manifold, où va le pressostat, le presse-étoupe et les points de fuite.</small>
+        </button>
+        <button type="button" class="home-tile" data-step="3">
+          <span class="home-tile-num">4</span>
+          <strong>Mini-jeux</strong>
+          <small>Quatre repérages cliquables sur la coupe, puis cinq décisions de chantier. Correction immédiate.</small>
+        </button>
+      </nav>
+      <p class="home-note">Fonctionne hors ligne une fois la page ouverte. Le bouton <strong>Aa</strong> agrandit le texte et propose une police adaptée aux lecteurs DYS ; <strong>🖨 Livret</strong> imprime les quatre écrans avec le corrigé.</p>
+    </section>
 
     <main class="lesson" id="main-content">
       <section class="lesson-copy" aria-live="polite" aria-atomic="false">

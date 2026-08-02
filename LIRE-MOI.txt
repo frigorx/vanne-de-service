@@ -31,12 +31,15 @@ COUVERTURE DECLAREE (couverture.json)
   L'ecran bp-hp est declare hors referentiel : c'est du contexte de comprehension.
 
 ADRESSAGE
-  index.html                    ouvre sur l'ecran 1
+  index.html                    ouvre sur le SOMMAIRE (les 4 ecrans en tuiles)
   index.html?ecran=geste        ouvre droit sur le raccordement et la securite
   index.html?ecran=jeux         ouvre droit sur les mini-jeux
   index.html?dossier=bp-hp      alias accepte, pour rester homogene avec les autres cours
   Le bouton « Copier le lien » de l'en-tete donne l'adresse exacte de l'ecran
   affiche : de quoi envoyer deux ecrans en reponse a une question de stagiaire.
+  UNE SEULE adresse suffit donc a partager le cours entier : le sommaire.
+  On y revient par le bouton « Sommaire » de l'en-tete, par le bouton du bas
+  quand on est sur le premier ecran, ou par la touche Echap.
 
 LISIBILITE
   Le reglage de la taille du texte n'est plus local a ce module : c'est le bouton

@@ -21,7 +21,11 @@
     next: document.getElementById("next-button"),
     progressLabel: document.getElementById("progress-label"),
     progressBar: document.getElementById("progress-bar"),
-    stepButtons: Array.from(document.querySelectorAll(".step-button"))
+    stepButtons: Array.from(document.querySelectorAll(".step-button")),
+    home: document.getElementById("home"),
+    homeTitle: document.getElementById("home-title"),
+    homeButton: document.getElementById("home-button"),
+    homeTiles: Array.from(document.querySelectorAll(".home-tile"))
   };
 
   const state = {
@@ -42,24 +46,44 @@
      paramètre employé par les autres cours interactifs. */
   const ECRAN_SLUGS = ["positions", "bp-hp", "geste", "jeux"];
 
+  /* Renvoie -1 quand aucun écran n'est demandé : l'adresse nue ouvre le
+     SOMMAIRE. Une seule adresse suffit donc à partager le cours entier —
+     les adresses par écran restent utiles pour répondre à une question
+     précise, elles ne sont plus la seule façon d'entrer. */
   function ecranDemande() {
     const params = new URLSearchParams(window.location.search);
     const demande = (params.get("ecran") || params.get("dossier") || "").trim().toLowerCase();
-    if (!demande) return 0;
+    if (!demande) return -1;
     const parSlug = ECRAN_SLUGS.indexOf(demande);
     if (parSlug !== -1) return parSlug;
     const parNumero = Number(demande);
     if (Number.isInteger(parNumero) && parNumero >= 1 && parNumero <= ECRAN_SLUGS.length) return parNumero - 1;
-    return 0;
+    return -1;
   }
 
   function memoriserEcranDansUrl(index) {
     if (!window.history || !window.history.replaceState) return;
     const url = new URL(window.location.href);
     url.searchParams.delete("dossier");
-    if (index === 0) url.searchParams.delete("ecran");
+    if (index < 0) url.searchParams.delete("ecran");
     else url.searchParams.set("ecran", ECRAN_SLUGS[index]);
     window.history.replaceState(null, "", url.toString());
+  }
+
+  function afficherAccueil(moveFocus) {
+    stopSequence();
+    state.surAccueil = true;
+    document.body.classList.add("screen-home");
+    document.body.classList.remove("screen-safety", "screen-games");
+    if (elements.homeButton) elements.homeButton.hidden = true;
+    memoriserEcranDansUrl(-1);
+    if (moveFocus && elements.homeTitle) elements.homeTitle.focus({ preventScroll: true });
+  }
+
+  function quitterAccueil() {
+    state.surAccueil = false;
+    document.body.classList.remove("screen-home");
+    if (elements.homeButton) elements.homeButton.hidden = false;
   }
 
   const POSITION_INFO = {
@@ -794,6 +818,7 @@
 
   function renderStep(index, moveFocus) {
     stopSequence();
+    quitterAccueil();
     state.current = Math.max(0, Math.min(LESSONS.length - 1, index));
     state.furthest = Math.max(state.furthest, state.current);
     document.body.classList.toggle("screen-safety", state.current === 2);
@@ -819,7 +844,10 @@
       else button.removeAttribute("aria-current");
     });
 
-    elements.previous.disabled = state.current === 0;
+    // Sur le premier écran, « Retour » ne se désactive plus : il ramène au
+    // sommaire. Un bouton mort en bas de page ne dit rien à personne.
+    elements.previous.disabled = false;
+    elements.previous.textContent = state.current === 0 ? "☰ Sommaire" : "← Retour";
     elements.next.textContent = state.current === LESSONS.length - 1 ? "Recommencer les jeux ↺" : "Continuer →";
     elements.progressLabel.textContent = `Écran ${state.current + 1} sur ${LESSONS.length}`;
     elements.progressBar.style.width = `${((state.current + 1) / LESSONS.length) * 100}%`;
@@ -831,7 +859,10 @@
     }
   }
 
-  elements.previous.addEventListener("click", () => renderStep(state.current - 1, true));
+  elements.previous.addEventListener("click", () => {
+    if (state.current === 0) afficherAccueil(true);
+    else renderStep(state.current - 1, true);
+  });
   elements.next.addEventListener("click", () => {
     if (state.current === LESSONS.length - 1) {
       restartAllGames();
@@ -842,10 +873,19 @@
   });
   elements.stepButtons.forEach((button) => button.addEventListener("click", () => renderStep(Number(button.dataset.step), true)));
 
+  elements.homeTiles.forEach((tile) => {
+    tile.addEventListener("click", () => renderStep(Number(tile.dataset.step), true));
+  });
+  if (elements.homeButton) {
+    elements.homeButton.addEventListener("click", () => afficherAccueil(true));
+  }
+
   document.addEventListener("keydown", (event) => {
     if (event.target.closest("button, a, input, select, textarea, [role='button']")) return;
+    if (state.surAccueil) return;
     if (event.key === "ArrowRight" && state.current < LESSONS.length - 1) renderStep(state.current + 1, true);
     if (event.key === "ArrowLeft" && state.current > 0) renderStep(state.current - 1, true);
+    if (event.key === "Escape") afficherAccueil(true);
   });
 
   document.addEventListener("visibilitychange", () => {
@@ -891,5 +931,13 @@
   window.addEventListener("beforeprint", construireLivret);
   window.addEventListener("afterprint", viderLivret);
 
-  renderStep(ecranDemande(), false);
+  const ecranInitial = ecranDemande();
+  if (ecranInitial < 0) {
+    // L'adresse nue ouvre le sommaire, mais les écrans sont préparés une fois
+    // pour que la barre d'étapes et la progression soient justes dès le départ.
+    renderStep(0, false);
+    afficherAccueil(false);
+  } else {
+    renderStep(ecranInitial, false);
+  }
 })();

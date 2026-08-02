@@ -25,6 +25,10 @@ Sur les coupes, le bleu plein marque les volumes qui communiquent avec le compre
 gris hachuré un volume isolé par le pointeau. **Un volume isolé n'est ni vide ni sans
 pression.**
 
+**L'adresse ouvre un sommaire** : quatre tuiles, on choisit par où entrer. Une seule adresse
+à partager, donc — et on revient au sommaire par le bouton « ☰ Sommaire », par le bouton du
+bas sur le premier écran, ou par la touche Échap.
+
 Quatre écrans : les trois positions · le même organe côté BP et côté HP · le geste et la
 sécurité (où brancher le flexible, où va le pressostat, les points de fuite) · deux
 mini-jeux corrigés (repérage cliquable sur la coupe, puis cinq décisions de chantier).
@@ -38,8 +42,10 @@ mini-jeux corrigés (repérage cliquable sur la coupe, puis cinq décisions de c
   état porte aussi un style de trait et un mot : photocopié, un vert et un rouge sont
   indiscernables.
 - **Adresse directe de chaque écran** — `?ecran=positions`, `?ecran=bp-hp`,
-  `?ecran=geste`, `?ecran=jeux`. Le bouton « 🔗 Copier le lien » donne l'adresse exacte de
-  l'écran affiché : de quoi envoyer deux écrans en réponse à la question d'un élève.
+  `?ecran=geste`, `?ecran=jeux` : ces adresses **sautent le sommaire** et ouvrent droit sur
+  l'écran voulu. Le bouton « 🔗 Copier le lien » donne l'adresse exacte de l'écran affiché :
+  de quoi envoyer un seul écran en réponse à la question d'un élève. Pour partager le cours
+  entier, l'adresse nue suffit.
 
 ## ⚠ Avertissement métier
 

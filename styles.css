@@ -1412,3 +1412,139 @@ html.lisibilite-agrandie .visual-root {
 .print-book {
   display: none;
 }
+
+/* =====================================================================
+   LE SOMMAIRE — l'adresse nue ouvre ici
+   ---------------------------------------------------------------------
+   Demande de F. Henninot (02/08) : « un index au lieu de quatre adresses ».
+   Une seule adresse à partager, on choisit son écran dedans. Les adresses
+   par écran (`?ecran=geste`) restent valides et sautent ce sommaire — elles
+   servent à répondre à une question précise, plus à entrer dans le cours.
+   ===================================================================== */
+.home {
+  display: none;
+  min-height: 0;
+  flex-direction: column;
+  gap: clamp(10px, 1.8vh, 18px);
+  padding: clamp(14px, 3vh, 30px) clamp(14px, 4vw, 48px);
+  overflow: auto;
+}
+
+body.screen-home .home {
+  display: flex;
+}
+
+body.screen-home .stepper,
+body.screen-home .lesson,
+body.screen-home .bottom-nav,
+body.screen-home #copy-link {
+  display: none;
+}
+
+.home-copy h1 {
+  margin: 4px 0 0;
+  color: var(--navy-700);
+  font-family: "Trebuchet MS", Calibri, Arial, sans-serif;
+  font-size: clamp(1.7em, 4.2vw, 2.6em);
+  line-height: 1.05;
+  letter-spacing: -.015em;
+}
+
+.home-intro {
+  margin: 10px 0 0;
+  max-width: 62ch;
+  color: var(--muted);
+  font-size: clamp(.92em, 1.25vw, 1.05em);
+  line-height: 1.45;
+}
+
+.home-intro strong,
+.home-note strong {
+  color: var(--navy-700);
+}
+
+.home-danger {
+  margin: 12px 0 0;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-left: 5px dashed var(--danger);
+  border-radius: 10px;
+  background: var(--paper);
+  font-size: .92em;
+  line-height: 1.35;
+}
+
+.home-danger strong {
+  color: var(--danger);
+}
+
+.home-grid {
+  display: grid;
+  gap: clamp(8px, 1.4vw, 14px);
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+}
+
+.home-tile {
+  display: grid;
+  align-content: start;
+  gap: 5px;
+  padding: clamp(11px, 1.6vw, 17px);
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--navy-700);
+  border-radius: 14px;
+  background: var(--paper);
+  box-shadow: 0 2px 10px rgba(27, 58, 99, .10);
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.home-tile:hover {
+  border-top-color: var(--orange);
+  box-shadow: 0 6px 18px rgba(27, 58, 99, .16);
+}
+
+.home-tile-num {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 2px solid var(--navy-700);
+  border-radius: 50%;
+  color: var(--navy-700);
+  font-family: Consolas, monospace;
+  font-size: .85em;
+  font-weight: 900;
+}
+
+.home-tile strong {
+  color: var(--navy-700);
+  font-family: "Trebuchet MS", Calibri, Arial, sans-serif;
+  font-size: 1.08em;
+  line-height: 1.12;
+}
+
+.home-tile small {
+  color: var(--muted);
+  font-size: .82em;
+  line-height: 1.3;
+}
+
+.home-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: .82em;
+  line-height: 1.35;
+}
+
+/* Le sommaire respire déjà : il n'a pas besoin du traitement « agrandi ». */
+html.lisibilite-agrandie .home {
+  overflow: visible;
+}
+
+/* La coquille est une grille à quatre rangées calibrées pour le cours ; au
+   sommaire, seules l'en-tête et la page d'accueil restent — sans cette règle,
+   la section tomberait dans une rangée implicite et flotterait. */
+body.screen-home .app-shell {
+  grid-template-rows: 58px minmax(0, 1fr);
+}
