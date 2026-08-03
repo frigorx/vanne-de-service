@@ -6,8 +6,8 @@ coupe animée : ce qu'un dessin fixe ne montre pas.
 👉 **[Ouvrir le cours](https://frigorx.github.io/vanne-de-service/)**
 
 Une page, aucune installation, aucun compte. Fonctionne sur téléphone, sur tablette et au
-vidéoprojecteur — et **hors ligne** une fois la page chargée : ni image, ni son, ni police
-distante, la coupe est un dessin vectoriel construit par le code.
+vidéoprojecteur — et **hors ligne** une fois la page chargée : une seule image (48 Ko), ni
+son, ni police distante ; les coupes sont des dessins vectoriels construits par le code.
 
 ## Ce que le cours montre
 
@@ -81,6 +81,11 @@ Sources de construction et limites : `SOURCES.md`. Notice complète : `LIRE-MOI.
 - **Contenu pédagogique** (textes, schémas, questions) : **CC BY-NC-SA 4.0** — utilisable
   et adaptable gratuitement pour l'enseignement, à condition de citer l'auteur et de
   repartager à l'identique. **Pas d'usage commercial** sans accord écrit.
+- **La vue en perspective du sommaire** (`vanne-3d.webp`) : rendu réalisé par l'auteur
+  **d'après la géométrie de la documentation constructeur**. Elle est publiée à des fins
+  pédagogiques, pour reconnaître l'organe ; la géométrie représentée reste celle du
+  constructeur et cette image n'est pas couverte par la licence ci-dessus. Détail dans
+  `SOURCES.md`.
 - **Code** (`app.js`, `valve-diagram.js`, `styles.css`, `impression.css`,
   `moteur/lisibilite.js`) : **MIT**.
 - **Police Lexend** : SIL Open Font License — voir `moteur/polices/LICENCE-LEXEND.txt`.

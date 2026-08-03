@@ -238,3 +238,26 @@ body {
   line-height: 1.4;
   break-inside: avoid;
 }
+
+/* ---- La vue d'ensemble, en tête du livret ---- */
+.livret-photo {
+  float: right;
+  width: 62mm;
+  margin: 0 0 3mm 4mm;
+  padding: 2mm;
+  border: 1pt solid #1b3a63;
+  break-inside: avoid;
+}
+
+.livret-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.livret-photo figcaption {
+  margin-top: 1.5mm;
+  font-size: 8.5pt;
+  line-height: 1.25;
+  text-align: center;
+}

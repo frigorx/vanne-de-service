@@ -1,7 +1,10 @@
 LA VANNE DE SERVICE — TROIS POSITIONS, DEUX PRISES
 
 Cours interactif relié aux fiches p1, p5, g6b et g9b.
-4 ecrans, 9 questions corrigees, aucune image ni son en fichier.
+4 ecrans, 9 questions corrigees, aucun son.
+Une seule image en fichier : la vue d'ensemble du sommaire (vanne-3d.webp,
+48 Ko, rendu d'apres la documentation constructeur) - tout le reste est
+dessine par le code.
 
 CE QUE LE COURS FAIT
   Il met en coupe animee la vanne de service a deux prises et montre ce qu'un

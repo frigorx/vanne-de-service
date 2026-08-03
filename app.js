@@ -762,6 +762,10 @@
         <header class="livret-tete">
           <p class="livret-marque">inerWeb Édu · Pilote Fluides · habilitation fluides frigorigènes</p>
           <h1>La vanne de service — trois positions, deux prises</h1>
+          <figure class="livret-photo">
+            <img src="vanne-3d.webp?v=20260803-1" width="1024" height="783" alt="Vue en perspective d’une vanne de service à deux prises.">
+            <figcaption>L’objet vu de l’extérieur, avant de l’ouvrir en coupe.</figcaption>
+          </figure>
           <p class="livret-chapeau">Le carré de manœuvre, la tige et le pointeau se déplacent comme un seul ensemble de longueur constante ; le presse-étoupe, lui, reste fixe. Sur les coupes, le bleu plein marque les volumes qui communiquent avec le compresseur C, le gris hachuré un volume isolé par le pointeau — <strong>un volume isolé n’est ni vide ni sans pression</strong>.</p>
           <p class="livret-danger">P1 peut rester sous pression dans <strong>toutes</strong> les positions de la vanne : son bouchon ne se défait jamais sur une installation chargée.</p>
         </header>

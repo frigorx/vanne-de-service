@@ -39,8 +39,21 @@ versionnés ici** (documentation constructeur et photographies d’atelier) :
 - `packs/fluides/referentiel-2025.json` — libellés officiels des codes déclarés ;
 - `MATRICE-COMPETENCES.md` — où chaque code est enseigné et vérifié.
 
-Aucune image, aucun son, aucune police ne sont chargés : la coupe est un SVG
-construit par `valve-diagram.js`. Le cours fonctionne hors ligne.
+## La vue d’ensemble du sommaire (`vanne-3d.webp`)
+
+Rendu en perspective de la vanne, **d’après la géométrie de la documentation
+constructeur** (fichier `ID447759029458-0101.stp` cité ci-dessus), rendu et
+mise au point par **F. Henninot**, qui en assume la diffusion à des fins
+pédagogiques — décision du 3 août 2026. La géométrie représentée reste celle
+du constructeur ; l’image est utilisée pour **reconnaître l’organe**, jamais
+comme document d’intervention ni comme pièce commerciale.
+
+Poids : 48 Ko en WebP (1024 px de large), recadré sur la zone utile — le PNG
+d’origine faisait 669 Ko pour 1920 × 1080, à plus de la moitié vide.
+
+C’est la **seule** image du cours ; tout le reste est dessiné par le code.
+Les coupes sont des SVG construits par `valve-diagram.js`. Le cours fonctionne
+hors ligne.
 
 ## Limites
 
